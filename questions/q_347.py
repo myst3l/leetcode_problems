@@ -1,4 +1,4 @@
-nums = [1,1,1,2,2,3]
+nums = [1,1,1,2,2,3,1]
 k = 2
 
 def topKFrequent(nums, k):

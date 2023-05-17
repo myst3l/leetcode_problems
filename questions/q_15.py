@@ -2,43 +2,57 @@
 # return all the triplets [nums[i], nums[j], nums[k]]
 # such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
-nums = [-1,0,1,2,-1,-4]
+nums = [-1, 0, 1, 2, -1, -4]
 
-# def threeSum(self, nums):
+# nums = [5, -5, 4, 1, 0]
+# nums = [0,1,1]
+# nums = [0,0,0]
 
-ans = []
-set1 = set()
-nolist = [set() for i in range(0, int(len(nums)/3))]
-print(nolist)
-
-# for i in range(0, len(nums)):
-#     holder = []
-#     for j in range(0, len(nums)):
-#         for k in range(0, len(nums)):
-
-
-
-# nolist[0].add(0)
-# nolist[1].add(1)
-# nolist[1].add(0)
-# nolist[3].add(0)
-# print(nolist)
+# def threeSum(nums):
+#     nums = sorted(nums)
+#     ans = set()
+#     answer = []
+#     compi = 100
+#     compj = 100
+#     compk = 100
+#     pos1 = set()
+#     pos2 = set()
+#     pos3 = set()
 #
-# print(nolist[0]&nolist[1]&nolist[3])
+#     for i in range(0, len(nums)):
+#         # compi = nums[i]
+#         if compi != nums[i-1]:
+#             compi = nums[i]
+#             if i not in pos1:
+#                 for j in range(0, len(nums)):
+#                     if compj != nums[j] and i != j:
+#                         compj = nums[j]
+#                         for k in range(0, len(nums)):
+#                             if nums[i] + nums[j] + nums[k] == 0 and (i != j and i != k and j != k):
+#                                 sortedd = sorted([nums[i], nums[j], nums[k]])
+#                                 temp = tuple(sortedd)
+#                                 if temp not in ans:
+#                                     ans.add(temp)
+#                                     answer.append(sortedd)
+#         pos1.add(i)
+#     print(pos1)
+#     print(pos2)
+#     return answer
 
-# counts = 0
-# for i in range(0, len(nums)):
-#     holder = []
-#     for j in range(0, len(nums)):
-#         for k in range(0, len(nums)):
-#             if nums[i] + nums[j] + nums[k] == 0 and (i!=j and j!=k and i!=k) and len(nolist[i]&nolist[j]&nolist[k])==0:
-#                 ans.append([nums[i],nums[j],nums[k]])
-#                 nolist[i].add(counts)
-#                 nolist[j].add(counts)
-#                 nolist[k].add(counts)
-#                 counts+=1
-# print(ans)
-# print(nolist)
+nums = sorted(nums)
+def twoSum(numbers, target):
+    hashtable = set(numbers)
+
+    for i in range(0, len(numbers)):
+
+        if target - numbers[i] in hashtable:
+            for j in range(0, len(numbers)):
+                if numbers[j] == target - numbers[i] and i!=j:
+                    return [numbers[i],numbers[j]]
 
 
-
+done = set()
+for i in range(0,len(nums)):
+    if nums[i] not in done:
+        done.add(nums[i])
+        print(str(nums[i]) + str(twoSum(nums, -nums[i])))
